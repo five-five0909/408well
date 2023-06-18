@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="zh-CN" class version="4" style>
+ <!--
+ Page saved with SingleFile 
+ url: https://blog.csdn.net/qq_39183034/article/details/127113348?spm=1001.2014.3001.5501 
+ saved date: Sun Jun 18 2023 10:21:20 GMT+0800 (中国标准时间)
+-->
+ <head>
+  <meta charset="utf-8">
+  <link rel="canonical" href="https://blog.csdn.net/qq_39183034/article/details/127113348">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="report" content="{&quot;spm&quot;:&quot;1001.2101&quot;,&quot;extra&quot;:{&quot;tsab&quot;:&quot;t_1&quot;},&quot;pid&quot;:&quot;blog&quot;}">
+  <meta name="referrer" content="always">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <link rel="alternate" media="handheld" href="#">
+  <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+  <meta name="applicable-device" content="pc">
+  <title>第三章栈和队列-第五节：Java、C++、Python实现栈和队列_王道数据结构python_快乐江湖的博客-CSDN博客</title>
+  <meta name="keywords" content="王道数据结构python">
+  <meta name="csdn-baidu-search" content="{&quot;autorun&quot;:true,&quot;install&quot;:true,&quot;keyword&quot;:&quot;王道数据结构python&quot;}">
+  <meta name="description" content="【代码】(王道408考研数据结构)第三章栈和队列-第五节：Java、C++、Python实现栈和队列。">
+  <style>:root{--sf-img-29: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAYCAMAAACCyC6UAAAByFBMVEUAAAD///b/9/H/9/H/9/Hfdgzfdw3fdw7feA/feBDfeRHfeRLgehPgehTgexbgfBfgfBjgfRnhfhvhfxzhgB7hgiDigiHigyLigyPihCTihSbihijjhinjhyvjiCzjiS/kizHkjDLkjDPkjTXkjjbljjfljzjlkDrlkjzlkj3mkz7mkz/mlEDmlEHmlULmlUPmlkTmlkXnl0fnmUromkzom03om07onE/onFDonVHpnlTpn1XpoFfpoVjqo1vqpFzqpF3qpmDqp2HrpmLrp2Psqmnsq2rsq2vsrGvsrm/tr3Dtr3HtsHLtsXXtsnbutHnutXrutXvut37vtn7vuoXwvIfwvIjwvYrwvozxv43xwI/xwJDxwZHxwpHyw5TyxJXyxZbyxZfyxpjyx5rzxpvzyJ3zyZ/zyqH0y6T0zaX0z6j10Kr10a310q710q/107D21LL21bT21rX217b32Ln32Lr32bv32bz32r3427/428D43MH438X54Mj54sr548z65M365c/65dD65tL759X76tn76tr869z87N387d787d/87uD87+H98eT98eX98ub98uf98+j+9Or+9Ov+9ez+9e3+9u/+9/AxkM6NAAAABXRSTlMAHKbm7dPOBesAAAHUSURBVDjLnZT5V1JBFMcf4BcxXJLXIhpSbplKi7lEEUaLQWJKiillCCGaS5FFRZZbRZkoksj9d5s3dgTh1enx+eHO3Dvn8+bMzJsRBJVaQwrQqFWCoCohhZSoBDUpRi1olEsagYWFHo61fzL5f5YkTaK2mWEETn7MH/9iC/5NCvD++mNtXTpvfBb+f0tEffikXBrBW6mJjjpG5qU534Xu404otEmUeTl4y+nblJOs4j5R2gn9WQMufie6DU6MtloBsx4nIvlSZvkhPKy9h4FfRHOGcxlKxJ/BG4+n6RrcW7Q9ozPuZqVTZoaIqlcs+1xazz83hReHa0o0Xt2Xal1YykqtdsZNS8WFN0RDGOPSru56wUb4D7Ija/rRgzDZ4BjgVDfkSMmg60bnZTMmCjciUdpCV9DYcoAlKy0a0GZ3uqxyEpmO012sFpzTWrlpQ8rCclKqrIm8mOL9r/bAoeTDNK/1y0gpB1z0U6zblpLusnUWI/Cy+AhPpVJElyv1DjMetB/DeXYOAdQ//zB+CW6+h+W1nnGKaU/7N6LOSneuxNHWdDzZkWqvz7CsanSPzz5hhEgUFIGKzmjsjyR7Cb8treT97snl93vZS1jUdS/qYSnmCfsN0tlIqG+37oIAAAAASUVORK5CYII=")}body,h1,h2,h3,ul,li,ol,p,span,div,pre,a,input,button{margin:0;padding:0;font-weight:normal;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}li{list-style:none}h1,h2,h3{font-family:"PingFang SC","Microsoft YaHei","SimHei","Arial","SimSun"}img{border:0;outline:none}i{font-style:normal}a{outline:none}a:link,a:visited{color:#4f4f4f}a:hover,a:active,a:focus{text-decoration:none}.clearfix:after{content:".";height:0;visibility:hidden;display:block;clear:both}.d-flex{display:-webkit-box;display:-ms-flexbox}aside{width:300px;float:left}aside div.aside-box{margin-bottom:8px;background-color:#fff}aside div.aside-box a{cursor:pointer}aside div.aside-box h3.aside-title{position:relative;font-size:14px;color:#333;font-weight:bold}.clearfix:after{content:" ";display:block;height:0;visibility:hidden;clear:both}main{margin-bottom:40px}main div.blog-content-box{position:relative;padding:0 24px 16px;background:#fff;border-radius:2px 2px 0 0}main div.blog-content-box .article-header-box{padding-top:8px;z-index:9;background-color:#fff}main div.blog-content-box .article-header-box .article-header .un-collection{font-size:14px}main div.blog-content-box .article-header-box .article-header .un-collection span{margin-right:0!important}main div.blog-content-box .article-header-box .article-header div.article-title-box{margin-bottom:8px}main div.blog-content-box .article-header-box .article-header div.article-title-box .title-article{font-size:28px;word-wrap:break-word;color:#222226;font-weight:600;margin:0;word-break:break-all}main div.blog-content-box .article-header-box .article-header div.article-info-box{position:relative;background:#f8f8f8;border-radius:4px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.blog-tags-box{padding-left:48px;display:-webkit-box;display:-ms-flexbox;display:flex}main div.blog-content-box .article-header-box .article-header div.article-info-box div.blog-tags-box .tags-box{font-size:14px;line-height:24px;margin-bottom:4px;margin-right:8px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.blog-tags-box .tags-box.artic-tag-box{width:100%}main div.blog-content-box .article-header-box .article-header div.article-info-box div.blog-tags-box .tags-box.artic-tag-box a.tag-link{-webkit-box-sizing:border-box;box-sizing:border-box;margin-right:8px;padding:3px 6px;font-size:12px;background-color:#fff;color:#5094d5;border:1px solid #eaeaef;height:24px;line-height:17px;border-radius:2px;display:inline-block}main div.blog-content-box .article-header-box .article-header div.article-info-box div.blog-tags-box .tags-box.artic-tag-box a.tag-link:hover{color:#277ccc}main div.blog-content-box .article-header-box .article-header div.article-info-box div.blog-tags-box .tags-box span.label{display:inline-block;color:#999aaa}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top{color:#999aaa;width:88%;display:-webkit-box;display:-ms-flexbox;display:flex}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .bar-content{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding-left:12px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top span,main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top a{vertical-align:top;margin-right:12px;line-height:32px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .article-type-img{width:36px;height:32px;line-height:32px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .article-heard-img{margin-right:4px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .article-read-img{width:16px;height:16px;margin-top:0}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .article-collect-img{vertical-align:-3px;margin-top:0;margin-right:0;width:16px;height:16px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .article-time-img{width:16px;height:16px}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top #blog_detail_zk_collection{color:#999aaa;display:inline-block}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top #blog_detail_zk_collection:hover img.isdefault{display:none!important}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top #blog_detail_zk_collection:hover img.isactive{display:inline-block!important}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top #blog_detail_zk_collection:hover span{color:#fc5531}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .follow-nickName{color:#555666;margin-right:20px;max-width:232px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top .follow-nickName:hover{color:#fc5531}main div.blog-content-box .article-header-box .article-header div.article-info-box div.article-bar-top span.time{position:relative}main div.blog-content-box .article-header-box .article-header div.article-info-box .operating{position:absolute;top:0;right:8px;line-height:32px}main div.blog-content-box .article-header-box .article-header div.article-info-box .operating a.href-article-edit{position:relative;color:#8fb0c9;padding:0 4px;font-size:12px}main div.blog-content-box .article-header-box .article-header div.article-info-box .operating a.href-article-edit:last-child::after{display:none}main div.blog-content-box .article-header-box .article-header div.article-info-box .operating a.href-article-edit:after{display:block;content:"";width:1px;height:11px;background:#e0e0e0;position:absolute;top:2px;right:-2px}main div.blog-content-box .article-header-box .article-header div.article-info-box .operating a.href-article-edit:hover{color:#fc5531}main div.blog-content-box .article-header-box .article-header div.article-info-box .operating a.href-article-edit:active{color:#5c91df}main div.blog-content-box .article-header-box .article-header div.article-info-box .operating a.slide-toggle:after{display:none}main div.blog-content-box article{position:relative;padding-top:16px}main div.blog-content-box article *{word-wrap:break-word}#content_views{position:relative;min-height:70px;font-size:16px!important}.csdn-side-toolbar{bottom:30px!important}.markdown_views p{font-size:16px!important}#content_views.markdown_views>.toc ul{margin:0;padding:0;padding-left:48px}#content_views.markdown_views>.toc ul li{margin:0;padding:0;font-size:16px;line-height:24px;margin-bottom:2px}@-webkit-keyframes open{0%{-webkit-transform:translate(-50%,-50%) scale(1);transform:translate(-50%,-50%) scale(1)}100%{-webkit-transform:translate(-50%,-50%) scale(.95);transform:translate(-50%,-50%) scale(.95)}}@keyframes open{0%{-webkit-transform:translate(-50%,-50%) scale(1);transform:translate(-50%,-50%) scale(1)}100%{-webkit-transform:translate(-50%,-50%) scale(.95);transform:translate(-50%,-50%) scale(.95)}}@-webkit-keyframes rotatestart{0%{-webkit-transform:translate(-50%,-50%) rotateY(0);transform:translate(-50%,-50%) rotateY(0)}100%{-webkit-transform:translate(-50%,-50%) rotateY(180deg);transform:translate(-50%,-50%) rotateY(180deg)}}@keyframes rotatestart{0%{-webkit-transform:translate(-50%,-50%) rotateY(0);transform:translate(-50%,-50%) rotateY(0)}100%{-webkit-transform:translate(-50%,-50%) rotateY(180deg);transform:translate(-50%,-50%) rotateY(180deg)}}@-webkit-keyframes silde-to-top{0%{top:0}100%{top:-425px}}@keyframes silde-to-top{0%{top:0}100%{top:-425px}}@-webkit-keyframes silde-to-bottom{0%{bottom:0}100%{bottom:-200px}}@keyframes silde-to-bottom{0%{bottom:0}100%{bottom:-200px}}.comment-box.comment-box-new2{border-radius:2px;background:#fff;width:100%;height:-webkit-max-content;height:-moz-max-content;height:max-content}.comment-box.comment-box-new2.login-comment-box-new{overflow:hidden}.comment-box.comment-box-new2.comment-box-nostyle{padding:0;margin-bottom:0;margin-top:0!important}body{height:100%}.nodata .container{margin-left:8px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}.nodata .recommend-right_aside{height:100%;position:relative}.nodata .recommend-right_aside .groupfile{max-height:50%;border-radius:2px}.nodata .recommend-right_aside .groupfile-div1{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}#blogColumnPayAdvert{background-color:#fff}#blogColumnPayAdvert .column-group{padding:16px 0}#blogColumnPayAdvert .column-group:hover,#blogHuaweiyunAdvert .column-group:hover{cursor:pointer}#blogColumnPayAdvert .column-group-item{display:-webkit-box;display:-ms-flexbox;display:flex;position:relative;-ms-flex-wrap:nowrap;flex-wrap:nowrap;height:56px;padding:9px 16px 9px 16px;background:#fff;-webkit-box-shadow:0 0 10px 0 rgba(232,232,237,0.4);border-radius:2px;border:1px solid #f0f0f0;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;-webkit-transition:width .2s ease-in-out;-webkit-transition:margin-top .2s ease-in-out;transition:margin-top .2s ease-in-out}#blogColumnPayAdvert .column-group-item.column-group0{margin-top:0;z-index:3}#blogColumnPayAdvert .column-group-item.column-group-item-one{-webkit-box-shadow:none;box-shadow:none}#blogColumnPayAdvert .column-group-item.column-group-item-one:hover,#blogHuaweiyunAdvert .column-group-item.column-group-item-one:hover{-webkit-box-shadow:0 0 10px 0 rgba(232,232,237,0.4);box-shadow:0 0 10px 0 rgba(232,232,237,0.4)}#blogColumnPayAdvert .column-group-item .item-l{overflow:hidden;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center}#blogColumnPayAdvert .column-group-item .item-l a{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center}#blogColumnPayAdvert .column-group-item .item-l img{width:36px;height:36px;border-radius:2px;border:1px solid #f5f6f7;vertical-align:middle}#blogColumnPayAdvert .column-group-item .item-l .title{font-size:16px;font-weight:500;color:#222226;line-height:22px;margin-left:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}#blogColumnPayAdvert .column-group-item .item-l .title>span{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap}#blogColumnPayAdvert .column-group-item .item-l .title .tit{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:162px}#blogColumnPayAdvert .column-group-item .item-l .title .dec{margin-left:8px;font-size:14px;color:#999aaa;line-height:20px}#blogColumnPayAdvert .column-group-item .item-l .title:hover,#blogHuaweiyunAdvert .column-group-item .item-l .title:hover{color:#fc5531}#blogColumnPayAdvert .column-group-item .item-m{min-width:260px;font-size:14px;color:#999aaa;line-height:40px}#blogColumnPayAdvert .column-group-item .item-m span{float:right;margin-right:20px}#blogColumnPayAdvert .column-group-item .item-m span.old-add-new-box{display:inline-block;min-width:48px;text-align:right}#blogColumnPayAdvert .column-group-item .item-m span.price{display:block;height:20px;float:none;color:#555666;font-weight:500;line-height:20px;margin-right:0}#blogColumnPayAdvert .column-group-item .item-m span.oldprice{height:20px;line-height:20px;margin-right:0;text-decoration:line-through}#blogColumnPayAdvert .column-group-item .item-r{padding:4px 0;display:-webkit-box;display:-ms-flexbox;display:flex}#blogColumnPayAdvert .column-group-item .item-r a{width:80px;height:28px;font-size:12px;background:#fff;border-radius:16px;border:1px solid #ccccd8;text-align:center;line-height:28px}#blogColumnPayAdvert .column-group-item .item-r a:hover,#blogHuaweiyunAdvert .column-group-item .item-r a:hover{cursor:default;border:1px solid #555666}#blogColumnPayAdvert .column-group-item .item-r a.article-column-subscribe{color:#999aaa}#blogColumnPayAdvert .column-group-item .item-r a.article-column-subscribe:hover,#blogHuaweiyunAdvert .column-group-item .item-r a.article-column-subscribe:hover{border:1px solid #ccccd8}#blogColumnPayAdvert .column-group-item .item-r a.column-studyvip-free{min-width:142px;height:28px;background:#fae8d0;border-radius:23px;font-size:12px;color:#69421b;text-align:center;line-height:28px;margin-left:8px;position:relative;border:none}#blogColumnPayAdvert .column-group-item .item-r a.column-studyvip-free:hover,#blogHuaweiyunAdvert .column-group-item .item-r a.column-studyvip-free:hover{cursor:pointer;background:#f8c883}#blogColumnPayAdvert .column-group-item .item-r a.column-studyvip-discount{display:inline-block;min-width:90px;height:28px;background:#4c4c4c;border-radius:23px;font-size:12px;text-align:center;color:#ffcd66;line-height:28px;margin-left:8px;border:none;position:relative}#blogColumnPayAdvert .column-group-item .item-r a.column-studyvip-discount:hover,#blogHuaweiyunAdvert .column-group-item .item-r a.column-studyvip-discount:hover{cursor:pointer;background:#555666}.learning_the_member_box{width:100%;height:32px;background:rgba(255,244,229,0.5);border-radius:2px;padding:0 16px;margin-top:-2px}.learning_the_member_box a{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.learning_the_member_box a .left,.learning_the_member_box a .right{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.learning_the_member_box a .left span,.learning_the_member_box a .right span{line-height:32px;color:#69421b;font-size:14px}.learning_the_member_box a .left img{width:16px;height:16px;margin-right:4px}.learning_the_member_box a .right img{width:10px;height:16px;margin-left:2px}@media screen and (max-width:1320px){#blogColumnPayAdvert .column-group-item .item-l .title .tit{width:115px}}.more-toolbox-new{display:-webkit-box;display:-ms-flexbox;display:flex;position:relative;margin-bottom:8px}.more-toolbox-new .left-toolbox{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:17px 24px;height:64px;-webkit-box-sizing:border-box;box-sizing:border-box;background:#fff;-webkit-box-shadow:0-1px 8px 0 rgba(0,0,0,0.06);box-shadow:0-1px 8px 0 rgba(0,0,0,0.06);border-bottom-left-radius:2px;border-bottom-right-radius:2px}.more-toolbox-new .toolbox-left{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.more-toolbox-new .toolbox-left .profile-box .profile-href{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;overflow:hidden}.more-toolbox-new .toolbox-left .profile-box .profile-img{width:32px;height:32px;border-radius:32px;border:1px solid #f5f6f7;margin-right:8px}.more-toolbox-new .toolbox-left .profile-box .profile-name{max-width:160px;height:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px;font-weight:600;color:#222226;line-height:24px;margin-right:8px}.more-toolbox-new .toolbox-left .profile-attend{position:relative}.more-toolbox-new .toolbox-left .profile-attend a{display:block;min-width:60px;height:28px;background:#fff;border-radius:16px;font-size:14px;line-height:28px;text-align:center}.more-toolbox-new .toolbox-left .profile-attend a.tool-unbt-attend{color:#999aaa;border:1px solid #ccccd8}.more-toolbox-new .toolbox-left .profile-attend a.tool-unbt-attend:hover{color:#555666;border:1px solid #555666}.more-toolbox-new .toolbox-left .profile-attend a.tool-item-follow{background:#e33e33;color:#fff;border:1px solid #e33e33;position:absolute;bottom:4px;left:4px;height:28px;line-height:28px;z-index:10}.more-toolbox-new .toolbox-left .profile-attend a.tool-item-follow.active-animation{-webkit-animation:myflistdeom .8s 1;animation:myflistdeom .8s 1;-webkit-animation-timing-function:cubic-bezier(0,.7,.9,1);animation-timing-function:cubic-bezier(0,.7,.9,1);-webkit-animation-fill-mode:forwards}.more-toolbox-new .toolbox-right{display:-webkit-box;display:-ms-flexbox;display:flex}.more-toolbox-new .toolbox-right .tool-directory{padding-left:16px}.more-toolbox-new .toolbox-right .tool-directory a{display:block;min-width:74px;height:28px;border-radius:16px;color:#555666;font-size:14px;line-height:28px;text-align:center;-webkit-box-sizing:border-box;box-sizing:border-box;border:1px solid #ccccd8}.more-toolbox-new .toolbox-right .tool-directory a:hover{border:1px solid #555666}.more-toolbox-new .toolbox-right .tool-column{padding-left:16px}.more-toolbox-new .toolbox-right .tool-column a{display:block;height:28px;border-radius:16px;font-size:14px;line-height:28px;text-align:center;-webkit-box-sizing:border-box;box-sizing:border-box}.more-toolbox-new .toolbox-right .tool-column a.tool-unbt-subscribe{color:#999aaa;border:1px solid #ccccd8}.more-toolbox-new .toolbox-right .tool-column a.tool-unbt-subscribe:hover{color:#555666;border:1px solid #555666;cursor:default}.more-toolbox-new .toolbox-middle{-webkit-box-flex:1;-ms-flex:1;flex:1}.more-toolbox-new .toolbox-list{margin:-17px 0;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}.more-toolbox-new .tool-item{padding:0 8px;height:64px}.more-toolbox-new .tool-item.tool-item-comment{position:relative}.more-toolbox-new .tool-item.tool-item-bar{width:1px;height:16px;background:#f0f0f2;margin:0 8px;padding:0}.more-toolbox-new .tool-item .tool-item-href{height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.more-toolbox-new .tool-item .tool-item-href .count{color:#999aaa;font-size:14px}.more-toolbox-new .tool-item .animation-dom{position:absolute;bottom:6px}.more-toolbox-new .tool-item .animation-dom.active-animation{-webkit-animation:myflist .8s 1;animation:myflist .8s 1;-webkit-animation-timing-function:cubic-bezier(0,.7,.9,1);animation-timing-function:cubic-bezier(0,.7,.9,1);-webkit-animation-fill-mode:forwards}.more-toolbox-new .tool-item img{margin-right:4px}.more-toolbox-new .tool-QRcode{height:64px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.more-toolbox-new .tool-active{-webkit-box-sizing:border-box;box-sizing:border-box;position:relative}.more-toolbox-new .tool-active:first-child a{padding-left:0}.more-toolbox-new .tool-active img{width:24px;height:24px}.more-toolbox-new .tool-active a:hover span{color:#fc5531}@-webkit-keyframes myflist{from{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0);opacity:1;display:block}to{-webkit-transform:scale(2,2) translateY(-5px);transform:scale(2,2) translateY(-5px);opacity:0;display:none}}@keyframes myflist{from{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0);opacity:1;display:block}to{-webkit-transform:scale(2,2) translateY(-5px);transform:scale(2,2) translateY(-5px);opacity:0;display:none}}@-webkit-keyframes myflistdeom{from{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0);opacity:1;display:block}to{-webkit-transform:scale(1.2,1.2) translateY(-10px);transform:scale(1.2,1.2) translateY(-10px);opacity:0;display:none}}@keyframes myflistdeom{from{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0);opacity:1;display:block}to{-webkit-transform:scale(1.2,1.2) translateY(-10px);transform:scale(1.2,1.2) translateY(-10px);opacity:0;display:none}}.groupfile{width:300px;-webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,0.05);box-shadow:0 2px 4px 0 rgba(0,0,0,0.05);-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.groupfile .aside-title{margin-bottom:8px}.groupfile .group_item{overflow:auto;margin-bottom:16px;margin-right:2px}.groupfile .group_item::-webkit-scrollbar{width:3px;height:100px}.groupfile .group_item::-webkit-scrollbar-thumb{background-color:rgba(153,154,170,0.3);border-radius:2px}.groupfile .pos-box{position:relative}.groupfile .pos-box .scroll-box .toc-box{overflow-y:auto;overflow-x:auto;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box}.groupfile .pos-box .scroll-box .toc-box ol li{margin-top:12px}.groupfile .pos-box .scroll-box .toc-box ol li a{display:block;width:100%;overflow:hidden;text-overflow:ellipsis;font-size:14px;white-space:nowrap;height:24px;line-height:24px}.groupfile .pos-box .scroll-box .toc-box>ol>li:first-child>a{height:24px;line-height:24px}.groupfile .pos-box .scroll-box .toc-box>ol li.active{background-color:#f0f0f5}.groupfile .pos-box .scroll-box .toc-box>ol li.active>a{color:#fc5531!important}.groupfile .pos-box .scroll-box .toc-box>ol>li:hover:not(.sub-box){background-color:#f0f0f5}.groupfile .pos-box .scroll-box .toc-box>ol>li:hover:not(.sub-box)>a{color:#fc5531}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box>ol>li:hover:not(.sub-box){background-color:#f0f0f5}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box>ol>li:hover:not(.sub-box)>a{color:#fc5531}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box>ol>li.sub-box>ol>li:hover:not(.sub-box){background-color:#f0f0f5}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box>ol>li.sub-box>ol>li:hover:not(.sub-box)>a{color:#fc5531}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box>ol>li:first-child{margin-top:0}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box>ol>li.sub-box>ol>li:first-child{margin-top:0}.groupfile .pos-box .scroll-box .toc-box>ol>li>a{padding:0 16px;color:#2d2e2f;font-weight:500}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box ol li a{color:#555666;padding:0 16px 0 40px}.groupfile .pos-box .scroll-box .toc-box>ol>li.sub-box ol li.sub-box a{color:#555666;padding:0 16px 0 64px}.skill-tree-box{padding:20px 0;border-top:1px solid #f0f0f2;border-bottom:1px solid #f0f0f2}.skill-tree-box .skill-tree-head{padding-left:32px;margin-bottom:12px;font-size:16px;color:#222226;font-weight:600;line-height:24px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAA+VBMVEUAAAD///8zMzMzMzMnJycwMDAtLS0rKysjIy4sLCwkJC4jIywpKSkoKCgkJCwjIysiIikmJiYkJCokJCkmJiolJSkkJCgkJCgkJCgiIiklJSgkJCgjIyYjIyYjIykkJCYjIykjIygjIyciIiciIiYkJCgiIiYiIiYjIyYiIiciIicjIycjIyYjIyciIicjIyYjIyYiIiYjIyYjIycjIycjIycjIycjIycjIycjIyciIiYiIicjIyYjIyYiIiciIicjIyYiIiciIicjIyYiIiciIicjIyYjIyYiIiciIiYjIyciIiciIiYjIyYjIycjIycjIyciIiYiIia5HBVuAAAAUnRSTlMAAQUKDRAREhYXHB0fICMkJSgxMjY+P0BHSkxNUFdYXV5sdXd4eX5/kpWWmJmpqq2utLW4vb/AxcvN0NHV1tfZ3eDh4+bn6eru7/P19/j5+vv+ws4hdQAAAXpJREFUOMuVk9dSAkEQRS+gIJjAnFeSWZFgDuSggovn/z/Gh9ldhi0e9L5N1+nu27dqpH+qUplddgev105MEkiKOTevA7dsAd8ANNYMsNYAYGQBfVYyx490EgIlOjweZ1bpWcA9B1L0naJARd6j0gH3FjCpgUVPZKau0BNY+yytG1/fAsuxrZhz8zZwywLr5lmCmTF9tGpnO9EJEN05q7U+gqiGANDc84G9pqkMPaBLenEz/8yPYwDnh+f85mKaThDTrqRIga+kQMkvChFJu9x5wCklSdItJ4Kpp5HdAlMDPQVLuwJ1WQ0s+ZrYhqmjAgWHw1Qsf0qyMv7s16vnh3EbiB+eV+v9z3FZ0sisZHy54AMLl2OvOJLUIzWf3s6WXFpLBlhq4Zay2+n5FD1JL2xIkpYfeIoIFHniYVmStMGLpCtyxsxcm32B9mnPmUqOKyn0hlCHQhMhtFO+py3jCYzrLd+1JCWtqyB0t1H86MLLpVL2kzuK/+27/wJz+XQKIOwrQgAAAABJRU5ErkJggg==);background-repeat:no-repeat;background-size:16px 16px;background-position:8px 4px}.skill-tree-box .skill-tree-body .skill-tree-item{margin-bottom:12px}.skill-tree-box .skill-tree-body .skill-tree-item:last-child{margin-bottom:0}.skill-tree-box .skill-tree-body .skill-tree-href{padding-left:8px}.skill-tree-box .skill-tree-body .skill-tree-href:hover a{color:#fc5531}.skill-tree-box .skill-tree-body .skill-tree-href:hover i{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAUCAMAAACDMFxkAAAAZlBMVEUAAAD/ZjP/VTn/YED/VT3/WTf/WjH/VTb/VTf/VzT/WDP/VzL/VzP8VjL9VjH9VjH9VTL9VjL8VjH8VTL8VTL8VTL9VTL9VjH9VjH9VjL9VTH9VjL9VTH9VjH9VjH9VTH9VjH8VTE0HhZCAAAAIXRSTlMABQkQFRcfISosNzhGVmh8ip61wsPLztDZ3OTl7e70+f1FCXPuAAAAVUlEQVQI12MQE2CAAUFFfhiTUUiRD8ZmElHghbGZxeV5YGxWSTkuGJtdWoYDxuaUlWKDsbnlJFhgbB55EQRTGEMBQhvCMIQVCIsRzkFyJJLTReEeAgAtMQUNBXj/jwAAAABJRU5ErkJggg==)}.skill-tree-box .skill-tree-body a,.skill-tree-box .skill-tree-body i,.skill-tree-box .skill-tree-body span{font-weight:400;color:#555666;line-height:22px;font-size:14px}.skill-tree-box .skill-tree-body i{display:inline-block;margin:0 4px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAUCAMAAACDMFxkAAAAZlBMVEUAAABmZmZVcXFgYHBVYW1ZWW9aWmtVXWxVW2dXV2hYWGZXV2lXV2ZWWWhWWGdWVmdVV2dWV2dWV2dVV2dVVmZVV2dVV2dWV2dWV2ZWV2ZVVmdWV2ZVVmZWV2dWV2ZVVmZWV2dVVmajOw8gAAAAIXRSTlMABQkQFRcfISosNzhGVmh8ip61wsPLztDZ3OTl7e70+f1FCXPuAAAAVUlEQVQI12MQE2CAAUFFfhiTUUiRD8ZmElHghbGZxeV5YGxWSTkuGJtdWoYDxuaUlWKDsbnlJFhgbB55EQRTGEMBQhvCMIQVCIsRzkFyJJLTReEeAgAtMQUNBXj/jwAAAABJRU5ErkJggg==);background-repeat:no-repeat;background-size:5px 10px;background-position:center 6px;height:22px;width:6px;vertical-align:-6px}.skill-tree-box .skill-tree-body .skill-tree-count{margin-left:16px;color:#222226}.icon-option-beta{width:26px!important;height:12px;position:absolute;top:-4px;right:-4px;z-index:10}.csdn-side-toolbar{z-index:998!important}#content_views .hl{padding-left:3px;border-radius:3px;text-decoration:none}#content_views .hl-1{margin-right:3px;padding-right:14px;color:#fc5531;background:transparent;background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTIgMEgwdjE0aDEyeiIvPjxnIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDExLjQ3OCAwKSIgc3Ryb2tlPSIjRkM1NTMxIj48Y2lyY2xlIGN4PSI2LjQ3OCIgY3k9IjUiIHI9IjQuNSIvPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTMuMjU0IDguMjk3TDAgMTEuMTQ2Ii8+PC9nPjwvZz48L3N2Zz4=);background-repeat:no-repeat;background-size:12px 14px;background-position:right top;-webkit-box-shadow:none;box-shadow:none}.recommend-right1{margin-left:8px;width:300px;float:left;position:relative}.recommend-right1.show-directory{display:block}body{min-width:1200px;-webkit-font-smoothing:antialiased}.main_father{padding:8px 12px 0 12px}@media (min-width:1320px) and (max-width:1380px){.nodata .container main{width:900px}}@media screen and (max-width:1320px){.nodata .container main{width:760px}.nodata .container main .more-toolbox-new .toolbox-left .profile-box .profile-name{max-width:128px}}@media screen and (min-width:1380px){.nodata .container main{width:1010px}}@media (min-width:1550px) and (max-width:1700px){.nodata .container main{width:820px}}@media screen and (min-width:1700px){.nodata .container main{width:1010px}}#content_views{-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}</style>
+  <script type="application/ld+json">{"@context":"https://ziyuan.baidu.com/contexts/cambrian.jsonld","@id":"https://blog.csdn.net/qq_39183034/article/details/127113348","appid":"1638831770136827","pubDate":"2022-09-29T20:22:45","title":"(王道408考研数据结构)第三章栈和队列-第五节：Java、C++、Python实现栈和队列_王道数据结构python_快乐江湖的博客-CSDN博客","upDate":"2022-09-29T20:29:24"}</script>
+  <link href="data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAxVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zda/P9qhPz/mKr9/7bC/f/Fz/7/ydL+/8HM/v+tu/3/jaH9/156/P8zV/z/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/z9h/P+gsP3/8fP+/////////////////////////////////////////////////+ru/v+Zqv3/PV/8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P9lgPz/6+/+///////////////////////////////////////////////////////////////////////s7/7/Y378/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/aoT8//r6/v///////////////////////v7+/+Po/v/R2f7/y9T+/9rg/v/3+f7////////////////////////////j6P7/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/0Zm/P/w8/7/////////////////5+v+/4ab/f9AYvz/MVX8/zFV/P8xVfz/MVX8/zVY/P9kf/z/tsP9//39/v////////////T2/v8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/sL79/////////////////87W/v8/Yfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/ZYD8//L0/v//////n7D9/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/0Bh/P/6+/7////////////v8v7/QmP8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/TWz8/3GJ/P8yVvz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/e5L8/////////////////5qr/f8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P+mtv3/////////////////XHn8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/7/L/f////////////////87Xfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/ydL+////////////+/v+/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P/Ezv7////////////9/f7/M1b8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/7G//f////////////////9HZ/z/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/kqX9/////////////////22H/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P9kf/z/////////////////pbX9/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zRX/P/v8v7////////////s7/7/Nln8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/6Ky/f////////////////+Inf3/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/RWb8//f4/v////////////H0/v9Kafz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/PV/8/1Jw/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/kKT9/////////////////9vh/v9DZPz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/1Fv/P/m6/7//v7+/3aO/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8zVvz/xM79/////////////////+fr/v9viPz/MVX8/zFV/P8xVfz/MVX8/zRX/P+Emf3/8/X+////////////xc/+/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P87Xfz/ztf+///////////////////////i5/7/sL79/5+w/f+ywP3/6u3+//////////////////////+uvP3/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P83Wvz/sL79//7+/v//////////////////////////////////////////////////////3OL+/0Vl/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/aYP8/9Pb/v//////////////////////////////////////9fb+/5yu/f84W/z/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/1d0/P+Spf3/t8T9/8fR/v/Dzv7/qrn9/3uS/P88Xvz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/MVX8/zFV/P8xVfz/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="shortcut icon" type="image/x-icon">
+  <style>.sf-hidden{display:none!important}</style>
+  <meta http-equiv="content-security-policy" content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;">
+  <style>img[src="data:,"],source[src="data:,"]{display:none!important}</style>
+ </head>
+ <body class="nodata" _c_t_j1="1">
+  <div id="MathJax_Message" style="display:none"></div>
+  <style>@media screen{.dec{color:#606}}</style>
+  <style>:root{--swiper-theme-color:#007aff}:root{--swiper-navigation-size:44px}@keyframes swiper-preloader-spin{100%{transform:rotate(360deg)}}</style>
+  <div class="main_father clearfix d-flex mainfather-concision" style="height:100%">
+   <div class="container clearfix container-concision" id="mainBox" style="width:100%">
+    <main style="margin: 0px auto;position: absolute;width: 100%">
+     <div class="blog-content-box">
+      <div class="article-header-box">
+       <div class="article-header">
+        <div class="article-title-box">
+         <h1 class="title-article" id="articleContentId">(王道408考研数据结构)第三章栈和队列-第五节：Java、C++、Python实现栈和队列</h1>
+        </div>
+       </div>
+      </div>
+      <article class="baidu_pl">
+       <div id="article_content" class="article_content clearfix">
+        <div id="content_views" class="markdown_views prism-atom-one-dark" style="user-select:auto">
+         <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color:rgba(0,0,0,0)"></path>
+         </svg>
+         <p></p>
+         <p></p>
+         <h1><a name="t1"></a><a id="_4"></a>一：栈的实现</h1>
+         <h2><a name="t2"></a><a id="1C_6"></a>（1）C语言实现</h2>
+         <pre data-index="0" class="prettyprint" style="user-select:auto"><code class="prism language-c has-numbering" style="position:unset;user-select:auto"><span class="token keyword">void</span> <span class="token function">StackInit</span><span class="token punctuation">(</span>ST<span class="token operator">*</span> ps<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ps<span class="token operator">-&gt;</span>a <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	ps<span class="token operator">-&gt;</span>top <span class="token operator">=</span> ps<span class="token operator">-&gt;</span>capacity <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">StackDestory</span><span class="token punctuation">(</span>ST<span class="token operator">*</span> ps<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">free</span><span class="token punctuation">(</span>ps<span class="token operator">-&gt;</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ps<span class="token operator">-&gt;</span>a <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	ps<span class="token operator">-&gt;</span>top <span class="token operator">=</span> ps<span class="token operator">-&gt;</span>capacity <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">StackPush</span><span class="token punctuation">(</span>ST<span class="token operator">*</span> ps<span class="token punctuation">,</span> STDataType x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>ps<span class="token operator">-&gt;</span>top <span class="token operator">==</span> ps<span class="token operator">-&gt;</span>capacity<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">int</span> newCapacity <span class="token operator">=</span> ps<span class="token operator">-&gt;</span>capacity <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token number">4</span> <span class="token operator">:</span> <span class="token punctuation">(</span>ps<span class="token operator">-&gt;</span>capacity<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+		STDataType<span class="token operator">*</span> tmp <span class="token operator">=</span> <span class="token punctuation">(</span>STDataType<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>ps<span class="token operator">-&gt;</span>a<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>STDataType<span class="token punctuation">)</span><span class="token operator">*</span>newCapacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>tmp <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"realloc fail\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">exit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		ps<span class="token operator">-&gt;</span>a <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+		ps<span class="token operator">-&gt;</span>capacity <span class="token operator">=</span> newCapacity<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	ps<span class="token operator">-&gt;</span>a<span class="token punctuation">[</span>ps<span class="token operator">-&gt;</span>top<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+	ps<span class="token operator">-&gt;</span>top<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">StackPop</span><span class="token punctuation">(</span>ST<span class="token operator">*</span> ps<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	ps<span class="token operator">-&gt;</span>top<span class="token operator">--</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+STDataType <span class="token function">StackTop</span><span class="token punctuation">(</span>ST<span class="token operator">*</span> ps<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> ps<span class="token operator">-&gt;</span>a<span class="token punctuation">[</span>ps<span class="token operator">-&gt;</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bool <span class="token function">StackEmpty</span><span class="token punctuation">(</span>ST<span class="token operator">*</span> ps<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> ps<span class="token operator">-&gt;</span>top <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">StackSize</span><span class="token punctuation">(</span>ST<span class="token operator">*</span> ps<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>ps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> ps<span class="token operator">-&gt;</span>top<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h2><a name="t3"></a><a id="2C_73"></a>（2）C++实现</h2>
+         <pre data-index="1" class="prettyprint" style="user-select:auto"><code class="prism language-cpp has-numbering" style="position:unset;user-select:auto"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstdio&gt;</span> </span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstdlib&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MaxSize</span> <span class="token expression"><span class="token number">100</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">Ok</span> <span class="token expression"><span class="token number">1</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">Error</span> <span class="token expression"><span class="token number">0</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">OverFlow</span> <span class="token expression"><span class="token operator">-</span><span class="token number">2</span></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+ 
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> Status<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> SElemType<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span><span class="token punctuation">{</span>
+	SElemType <span class="token operator">*</span>top<span class="token punctuation">;</span>		<span class="token comment">//栈顶指针 </span>
+	SElemType <span class="token operator">*</span>base<span class="token punctuation">;</span>	<span class="token comment">//栈底指针 </span>
+	<span class="token keyword">int</span> stacksize<span class="token punctuation">;</span>		<span class="token comment">//栈可用最大容量 </span>
+<span class="token punctuation">}</span>SqStack<span class="token punctuation">;</span>
+SqStack S<span class="token punctuation">,</span>T<span class="token punctuation">;</span>
+ 
+<span class="token comment">//初始化 </span>
+Status <span class="token function">InitStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	S<span class="token punctuation">.</span>base <span class="token operator">=</span> <span class="token punctuation">(</span>SElemType<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SElemType<span class="token punctuation">)</span> <span class="token operator">*</span> MaxSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+		<span class="token function">exit</span><span class="token punctuation">(</span>OverFlow<span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment">//存储分配失败 </span>
+	S<span class="token punctuation">.</span>top <span class="token operator">=</span> S<span class="token punctuation">.</span>base<span class="token punctuation">;</span>			<span class="token comment">//栈顶指针等于栈底指针</span>
+	S<span class="token punctuation">.</span>stacksize <span class="token operator">=</span> MaxSize<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> Ok<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+ 
+<span class="token comment">//判断栈是否为空</span>
+Status <span class="token function">StackEmpty</span><span class="token punctuation">(</span>SqStack S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top <span class="token operator">==</span> S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> Ok<span class="token punctuation">;</span>
+	<span class="token keyword">else</span>
+		<span class="token keyword">return</span> Error<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+ 
+<span class="token comment">//求顺序栈的长度</span>
+<span class="token keyword">int</span> <span class="token function">StackLength</span><span class="token punctuation">(</span>SqStack S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">return</span> S<span class="token punctuation">.</span>top <span class="token operator">-</span> S<span class="token punctuation">.</span>base<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+ 
+<span class="token comment">//清空顺序栈</span>
+Status <span class="token function">ClearStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+		S<span class="token punctuation">.</span>top <span class="token operator">=</span> S<span class="token punctuation">.</span>base<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> Ok<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token comment">//销毁顺序栈</span>
+Status <span class="token function">DestroyStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">delete</span> S<span class="token punctuation">.</span>base<span class="token punctuation">;</span>		<span class="token comment">//释放内存 </span>
+		S<span class="token punctuation">.</span>stacksize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>		<span class="token comment">//清空栈容量 </span>
+		S<span class="token punctuation">.</span>base <span class="token operator">=</span> S<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>		<span class="token comment">//指针指向空 </span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> Ok<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+ <span class="token comment">//顺序栈的入栈</span>
+ Status <span class="token function">Push</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">,</span>SElemType e<span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+    <span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top <span class="token operator">-</span> S<span class="token punctuation">.</span>base <span class="token operator">&gt;=</span> S<span class="token punctuation">.</span>stacksize<span class="token punctuation">)</span>		<span class="token comment">//栈满，扩容 </span>
+        <span class="token punctuation">{</span>  
+        S<span class="token punctuation">.</span>base <span class="token operator">=</span> <span class="token punctuation">(</span>SElemType <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>base<span class="token punctuation">,</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>stacksize <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SElemType<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>  
+            <span class="token function">exit</span><span class="token punctuation">(</span>OverFlow<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        S<span class="token punctuation">.</span>top <span class="token operator">=</span> S<span class="token punctuation">.</span>base <span class="token operator">+</span> S<span class="token punctuation">.</span>stacksize<span class="token punctuation">;</span>  
+        S<span class="token punctuation">.</span>stacksize <span class="token operator">*=</span> <span class="token number">2</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+    <span class="token operator">*</span>S<span class="token punctuation">.</span>top<span class="token operator">++</span> <span class="token operator">=</span> e<span class="token punctuation">;</span>  
+    <span class="token keyword">return</span> Ok<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>
+ 
+ <span class="token comment">//顺序栈的出栈 </span>
+ Status <span class="token function">Pop</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">,</span>SElemType <span class="token operator">&amp;</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ 	<span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top <span class="token operator">==</span> S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>		
+ 		<span class="token keyword">return</span> Error<span class="token punctuation">;</span>
+ 	e <span class="token operator">=</span> <span class="token operator">*</span><span class="token operator">--</span>S<span class="token punctuation">.</span>top<span class="token punctuation">;</span>
+ 	<span class="token keyword">return</span> Ok<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+ 
+ <span class="token comment">//取栈顶元素</span>
+ Status <span class="token function">GetTop</span><span class="token punctuation">(</span>SqStack S<span class="token punctuation">,</span>SElemType <span class="token operator">&amp;</span>e<span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+    <span class="token keyword">if</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top<span class="token operator">==</span>S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>		<span class="token comment">//栈为空 </span>
+        <span class="token keyword">return</span> Error<span class="token punctuation">;</span>  
+    e <span class="token operator">=</span> <span class="token operator">*</span><span class="token punctuation">(</span>S<span class="token punctuation">.</span>top<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token keyword">return</span> Ok<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span> 
+ 
+<span class="token comment">//输出顺序栈中的元素</span>
+Status <span class="token function">Print</span><span class="token punctuation">(</span>SqStack S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	SElemType <span class="token operator">*</span>p <span class="token operator">=</span> S<span class="token punctuation">.</span>top<span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">!=</span> S<span class="token punctuation">.</span>base<span class="token punctuation">)</span>
+		cout<span class="token operator">&lt;&lt;</span> <span class="token operator">*</span><span class="token operator">--</span>p <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> Ok<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token comment">//进制转换</span>
+Status <span class="token function">Num</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">,</span><span class="token keyword">int</span> e<span class="token punctuation">,</span><span class="token keyword">int</span> num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token function">Push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>e <span class="token operator">%</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		e <span class="token operator">/=</span> num<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token comment">//输出转换后的数</span>
+Status <span class="token function">NumStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	SElemType <span class="token operator">*</span>p <span class="token operator">=</span> S<span class="token punctuation">.</span>top<span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+		<span class="token function">Pop</span><span class="token punctuation">(</span>T<span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>ans <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span>
+			cout<span class="token operator">&lt;&lt;</span> ans<span class="token punctuation">;</span>
+		<span class="token keyword">else</span><span class="token punctuation">{</span>
+			<span class="token keyword">char</span> c<span class="token punctuation">;</span>
+			c <span class="token operator">=</span> ans <span class="token operator">-</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token char">'A'</span><span class="token punctuation">;</span>
+			cout<span class="token operator">&lt;&lt;</span> c<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	cout<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+ 
+ 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">int</span> order<span class="token punctuation">,</span>init <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>des <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">,</span>e<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*--------------栈----------------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------1.初始化栈-------------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------2.销毁栈---------------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------3.清空栈---------------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------4.栈判空---------------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------5.求栈长度-------------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------6.获取栈顶元素---------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------7.插入一个元素---------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------8.删除一个元素---------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------9.输出所有元素---------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"*---------10.进制转换------------*"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	<span class="token keyword">do</span><span class="token punctuation">{</span>
+	cout<span class="token operator">&lt;&lt;</span> <span class="token string">"请输入指令："</span><span class="token punctuation">;</span>
+	cin<span class="token operator">&gt;&gt;</span> order<span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>order <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> order <span class="token operator">&gt;</span> <span class="token number">10</span><span class="token punctuation">)</span>
+		cout<span class="token operator">&lt;&lt;</span> <span class="token string">"没有该指令"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>init <span class="token operator">&amp;&amp;</span> order <span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> order <span class="token operator">!=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+		cout<span class="token operator">&lt;&lt;</span> <span class="token string">"请先初始化栈"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>des <span class="token operator">&amp;&amp;</span> order <span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> order <span class="token operator">!=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+		cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈已销毁，请先初始化"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+	<span class="token keyword">else</span>
+		<span class="token keyword">switch</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+				<span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				init<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+				des<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"初始化完成！"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+				<span class="token function">DestroyStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				des <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈已销毁"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+				<span class="token function">ClearStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈已清空"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">StackEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">)</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈非空"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">else</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈为空"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span>
+				len<span class="token operator">=</span><span class="token function">StackLength</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈长度为："</span> <span class="token operator">&lt;&lt;</span> len <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">6</span><span class="token operator">:</span>	
+				<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">GetTop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈顶元素为："</span> <span class="token operator">&lt;&lt;</span> e <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> 
+				<span class="token keyword">else</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token string">"空栈，无栈顶元素"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> 
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">7</span><span class="token operator">:</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"请输入插入元素："</span><span class="token punctuation">;</span>
+				cin<span class="token operator">&gt;&gt;</span> e<span class="token punctuation">;</span>
+				<span class="token function">Push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"入栈成功"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">8</span><span class="token operator">:</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">Pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈顶元素"</span> <span class="token operator">&lt;&lt;</span> e <span class="token operator">&lt;&lt;</span> <span class="token string">"出栈成功"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">else</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈为空"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">9</span><span class="token operator">:</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"栈为："</span><span class="token punctuation">;</span>
+				<span class="token function">Print</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span>
+				<span class="token keyword">int</span> num<span class="token punctuation">;</span> 
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"输入一个十进制数："</span><span class="token punctuation">;</span>
+				cin<span class="token operator">&gt;&gt;</span> e<span class="token punctuation">;</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"输入要转换的进制："</span><span class="token punctuation">;</span>
+				cin<span class="token operator">&gt;&gt;</span> num<span class="token punctuation">;</span>
+				<span class="token function">InitStack</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"10进制数"</span> <span class="token operator">&lt;&lt;</span> e <span class="token operator">&lt;&lt;</span> <span class="token string">"转换为"</span> <span class="token operator">&lt;&lt;</span> num <span class="token operator">&lt;&lt;</span><span class="token string">"进制数后为："</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span>e <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+				<span class="token punctuation">{</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token char">'-'</span><span class="token punctuation">;</span>
+					e <span class="token operator">=</span> <span class="token operator">-</span>e<span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>e<span class="token punctuation">)</span>
+					cout<span class="token operator">&lt;&lt;</span> <span class="token number">0</span><span class="token punctuation">;</span>
+				<span class="token function">Num</span><span class="token punctuation">(</span>T<span class="token punctuation">,</span>e<span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token function">NumStack</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token keyword">default</span><span class="token operator">:</span>
+				cout<span class="token operator">&lt;&lt;</span> <span class="token string">"程序已退出"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+				<span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span>order<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> Ok<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h2><a name="t4"></a><a id="3Java_302"></a>（3）Java实现</h2>
+         <pre data-index="2" class="prettyprint" style="user-select:auto"><code class="prism language-java has-numbering" style="position:unset;user-select:auto"><span class="token keyword">package</span> <span class="token namespace">myStack</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyStack</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> elem<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> usedSize<span class="token punctuation">;</span><span class="token comment">//当前栈中有效元素个数，也即top指针</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">DEFAULT_CAPACITY</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span><span class="token comment">//默认容量</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        elem <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token constant">DEFAULT_CAPACITY</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//压栈</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//如果栈满则扩容</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            elem <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>elem<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>elem<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">//放置元素，并移动指针</span>
+        elem<span class="token punctuation">[</span>usedSize<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        usedSize<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//判满</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>elem<span class="token punctuation">.</span>length <span class="token operator">==</span> usedSize<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//出栈</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//判空</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">StackEmptyException</span><span class="token punctuation">(</span><span class="token string">"栈空！无法删除"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">int</span> retVal <span class="token operator">=</span> elem<span class="token punctuation">[</span>usedSize<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        usedSize<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> retVal<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//判空</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>usedSize <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//查看栈顶元素</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//判空</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">StackEmptyException</span><span class="token punctuation">(</span><span class="token string">"栈空！无法删除"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> elem<span class="token punctuation">[</span>usedSize<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//返回栈顶有效元素个数</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> usedSize<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h2><a name="t5"></a><a id="4Python_376"></a>（4）Python实现</h2>
+         <pre data-index="3" class="prettyprint" style="user-select:auto"><code class="prism language-python has-numbering" style="position:unset;user-select:auto"><span class="token keyword">class</span> <span class="token class-name">Stack</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#我们定义空列表，实现栈的进入进出操作</span>
+        self<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+ 
+    <span class="token keyword">def</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#判断是否为空栈</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items <span class="token operator">==</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+ 
+    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#向栈中加入元素，新的元素自动加入栈底</span>
+        self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+ 
+    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#移出栈顶元素。</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 
+    <span class="token keyword">def</span> <span class="token function">peek</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#返回栈顶元素</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>items<span class="token punctuation">[</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+ 
+    <span class="token keyword">def</span> <span class="token function">size</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">#返回栈的长度</span>
+        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">)</span>
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h1><a name="t6"></a><a id="_407"></a>二：队列实现</h1>
+         <h2><a name="t7"></a><a id="1C_409"></a>（1）C语言实现</h2>
+         <h3><a name="t8"></a><a id="A_411"></a>A：链式队</h3>
+         <pre data-index="4" class="prettyprint" style="user-select:auto"><code class="prism language-c has-numbering" style="position:unset;user-select:auto"><span class="token comment">//队列的链表式实现</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdbool.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;assert.h&gt;</span>     <span class="token comment">//现算表达式，如果为假，向stderr打印出错信息并通过abort终止程序</span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">int</span> QDateType<span class="token punctuation">;</span>  <span class="token comment">//定义别名</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">QueueNode</span><span class="token comment">//结构体，队列中的元素：值和指向下个元素的指针</span>
+<span class="token punctuation">{</span>
+	QDateType val<span class="token punctuation">;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">QueueNode</span><span class="token operator">*</span> next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>QueueNode<span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span>	<span class="token keyword">struct</span> <span class="token class-name">Queue</span> <span class="token comment">//队列</span>
+<span class="token punctuation">{</span>
+	QueueNode<span class="token operator">*</span> head<span class="token punctuation">;</span> <span class="token comment">//头指针</span>
+	QueueNode<span class="token operator">*</span> tail<span class="token punctuation">;</span> <span class="token comment">//尾指针</span>
+<span class="token punctuation">}</span>Queue<span class="token punctuation">;</span>
+<span class="token comment">//队列初始化</span>
+<span class="token keyword">void</span> <span class="token function">QueueInti</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//非空</span>
+	pq<span class="token operator">-&gt;</span>head <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>tail <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//队列销毁</span>
+<span class="token keyword">void</span> <span class="token function">QueueDestory</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	QueueNode<span class="token operator">*</span> cur <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		QueueNode<span class="token operator">*</span> next <span class="token operator">=</span> cur<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		<span class="token function">free</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	pq<span class="token operator">-&gt;</span>tail <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>head <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//队尾插入元素</span>
+<span class="token keyword">void</span> <span class="token function">QueuePush</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">,</span> QDateType x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	QueueNode<span class="token operator">*</span> newNode <span class="token operator">=</span> <span class="token punctuation">(</span>QueueNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>QueueNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token constant">NULL</span> <span class="token operator">==</span> newNode<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"malloc error\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">exit</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	newNode<span class="token operator">-&gt;</span>val <span class="token operator">=</span> x<span class="token punctuation">;</span>
+	newNode<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>tail <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>head <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		pq<span class="token operator">-&gt;</span>head <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>tail <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">{</span>
+		pq<span class="token operator">-&gt;</span>tail<span class="token operator">-&gt;</span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+		pq<span class="token operator">-&gt;</span>tail <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment">//队首删除元素</span>
+<span class="token keyword">void</span> <span class="token function">QueuePop</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>head <span class="token operator">&amp;&amp;</span> pq<span class="token operator">-&gt;</span>tail<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>head<span class="token operator">-&gt;</span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token function">free</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		pq<span class="token operator">-&gt;</span>head <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>tail <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">{</span>
+		QueueNode<span class="token operator">*</span> next <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		<span class="token function">free</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		pq<span class="token operator">-&gt;</span>head <span class="token operator">=</span> next<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//队列是否为空</span>
+bool <span class="token function">QueueEmpty</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> pq<span class="token operator">-&gt;</span>head <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//取出队首元素-不删除</span>
+QDateType <span class="token function">QueueFront</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> pq<span class="token operator">-&gt;</span>head<span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//取出队尾元素-不删除</span>
+QDateType <span class="token function">QueueBack</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>tail<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">return</span> pq<span class="token operator">-&gt;</span>tail<span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//队列中元素数目</span>
+<span class="token keyword">int</span> <span class="token function">QueueSize</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> pq<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	QueueNode<span class="token operator">*</span> cur <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>head<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		cur <span class="token operator">=</span> cur<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		count<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    Queue q<span class="token punctuation">;</span>
+    <span class="token function">QueueInti</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePush</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePush</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePush</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePush</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePush</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePush</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> n1 <span class="token operator">=</span> <span class="token function">QueueSize</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"初试元素数目：%d\n"</span><span class="token punctuation">,</span> n1<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">//6</span>
+	<span class="token comment">//弹出并删除队首的3个元素：1 2 3，剩下4 5 6</span>
+    <span class="token function">QueuePop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">QueuePop</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n2 <span class="token operator">=</span> <span class="token function">QueueSize</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"当前元素数目：%d\n"</span><span class="token punctuation">,</span> n2<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">//3</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"当前队首元素%d\n"</span><span class="token punctuation">,</span> <span class="token function">QueueFront</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//4</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"当前队尾元素%d\n"</span><span class="token punctuation">,</span> <span class="token function">QueueBack</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>q<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//6</span>
+  
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h3><a name="t9"></a><a id="B_561"></a>B：<a href="https://so.csdn.net/so/search?q=%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97&amp;spm=1001.2101.3001.7020" target="_blank" class="hl hl-1" data-report-view="{&quot;spm&quot;:&quot;1001.2101.3001.7020&quot;,&quot;dest&quot;:&quot;https://so.csdn.net/so/search?q=%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97&amp;spm=1001.2101.3001.7020&quot;,&quot;extra&quot;:&quot;{\&quot;searchword\&quot;:\&quot;循环队列\&quot;}&quot;}" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.7020&quot;,&quot;dest&quot;:&quot;https://so.csdn.net/so/search?q=%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97&amp;spm=1001.2101.3001.7020&quot;,&quot;extra&quot;:&quot;{\&quot;searchword\&quot;:\&quot;循环队列\&quot;}&quot;}" data-tit="循环队列" data-pretit="循环队列">循环队列</a></h3>
+         <pre data-index="5" class="prettyprint" style="user-select:auto"><code class="prism language-c has-numbering" style="position:unset;user-select:auto"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;assert.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">"cqueue.h"</span></span>
+<span class="token keyword">void</span> <span class="token function">Init</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	pq<span class="token operator">-&gt;</span>base <span class="token operator">=</span> <span class="token punctuation">(</span>ELEM_TYPE<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>MAX_SIZE <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>ELEM_TYPE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>base <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	pq<span class="token operator">-&gt;</span>front <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	pq<span class="token operator">-&gt;</span>rear <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bool <span class="token function">Push</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">,</span> ELEM_TYPE val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">IsFull</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> false<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	pq<span class="token operator">-&gt;</span>base<span class="token punctuation">[</span>pq<span class="token operator">-&gt;</span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> val<span class="token punctuation">;</span>
+	pq<span class="token operator">-&gt;</span>rear <span class="token operator">=</span> <span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>rear <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> MAX_SIZE<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bool <span class="token function">Pop</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> false<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	pq<span class="token operator">-&gt;</span>front<span class="token operator">=</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>front<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span>MAX_SIZE<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bool <span class="token function">Top</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">,</span> ELEM_TYPE<span class="token operator">*</span> rtval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">IsEmpty</span><span class="token punctuation">(</span>pq<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> false<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token operator">*</span>rtval <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>base<span class="token punctuation">[</span>pq<span class="token operator">-&gt;</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bool <span class="token function">IsEmpty</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> pq<span class="token operator">-&gt;</span>front <span class="token operator">==</span> pq<span class="token operator">-&gt;</span>rear<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bool <span class="token function">IsFull</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>rear <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> MAX_SIZE <span class="token operator">==</span> pq<span class="token operator">-&gt;</span>front<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">Get_length</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> count<span class="token operator">=</span> <span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>rear <span class="token operator">-</span> pq<span class="token operator">-&gt;</span>front <span class="token operator">+</span> MAX_SIZE<span class="token punctuation">)</span> <span class="token operator">%</span> MAX_SIZE<span class="token punctuation">;</span><span class="token comment">//前面是防止出现负数，后面是防止正数加多</span>
+	<span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">Clear</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	pq<span class="token operator">-&gt;</span>front <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>rear <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">Destory</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">free</span><span class="token punctuation">(</span>pq<span class="token operator">-&gt;</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	pq<span class="token operator">-&gt;</span>front <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>rear <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span>PQueue pq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">assert</span><span class="token punctuation">(</span>pq <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> pq<span class="token operator">-&gt;</span>front<span class="token punctuation">;</span>i<span class="token operator">!=</span> pq<span class="token operator">-&gt;</span>rear<span class="token punctuation">;</span>i<span class="token operator">=</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span>MAX_SIZE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%5d"</span><span class="token punctuation">,</span>pq<span class="token operator">-&gt;</span>base<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h2><a name="t10"></a><a id="2C_633"></a>（2）C++实现</h2>
+         <h3><a name="t11"></a><a id="A_636"></a>A：链式队</h3>
+         <pre data-index="6" class="prettyprint" style="user-select:auto"><code class="prism language-cpp has-numbering" style="position:unset;user-select:auto"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword">class</span> <span class="token class-name">queue</span> <span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+	<span class="token keyword">struct</span> <span class="token class-name">queueNode</span> <span class="token punctuation">{</span>
+		T data<span class="token punctuation">;</span>
+		queueNode<span class="token operator">*</span> next<span class="token punctuation">;</span>
+		<span class="token function">queueNode</span><span class="token punctuation">(</span>T x<span class="token punctuation">)</span> <span class="token operator">:</span><span class="token function">data</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+	queueNode<span class="token operator">*</span> Front<span class="token punctuation">;</span><span class="token comment">//队列的队首指针</span>
+	queueNode<span class="token operator">*</span> rear<span class="token punctuation">;</span><span class="token comment">//对尾指针</span>
+	<span class="token keyword">int</span> count<span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+	<span class="token function">queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">bool</span> <span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">const</span> T <span class="token operator">&amp;</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	T <span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token class-name">queue</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span><span class="token function">Front</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">rear</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">//构造函数的初始化：必须初始化指针，否则引发错误</span>
+
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword">bool</span> <span class="token class-name">queue</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">//首指针为空则队列空</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>Front <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token keyword">else</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword">int</span> <span class="token class-name">queue</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> count<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword">void</span> <span class="token class-name">queue</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">const</span> T <span class="token operator">&amp;</span>node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>Front <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+		Front <span class="token operator">=</span> rear <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">queueNode</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+		<span class="token keyword">return</span><span class="token punctuation">;</span>
+	<span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token comment">//通过尾指针实现插入</span>
+		queueNode<span class="token operator">*</span> newNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">queueNode</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		rear<span class="token operator">-&gt;</span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+		rear <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword">void</span> <span class="token class-name">queue</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>Front <span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"queue is empty"</span><span class="token punctuation">;</span>
+	<span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token comment">//通过首指针实现删除</span>
+		queueNode<span class="token operator">*</span> node <span class="token operator">=</span> Front<span class="token punctuation">;</span>
+		Front <span class="token operator">=</span> Front<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		<span class="token keyword">delete</span> node<span class="token punctuation">;</span>
+		count<span class="token operator">--</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+T <span class="token class-name">queue</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> Front<span class="token operator">-&gt;</span>data<span class="token punctuation">;</span><span class="token comment">//注意返回的是首指针所指节点的数据域，而不是首节点。</span>
+<span class="token punctuation">}</span>
+
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h3><a name="t12"></a><a id="B_710"></a>B：循环队列</h3>
+         <pre data-index="7" class="prettyprint" style="user-select:auto"><code class="prism language-cpp has-numbering" style="position:unset;user-select:auto"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MaxSize</span> <span class="token expression"><span class="token number">10</span></span></span>
+ 
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+ 
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">SqQueue</span><span class="token punctuation">{</span>
+	<span class="token keyword">int</span> data<span class="token punctuation">[</span>MaxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> front<span class="token punctuation">,</span>rear<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+ 
+<span class="token comment">//初始化 </span>
+<span class="token keyword">void</span> <span class="token function">InitSqQueue</span><span class="token punctuation">(</span>SqQueue <span class="token operator">&amp;</span>Q<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	Q<span class="token punctuation">.</span>front <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	Q<span class="token punctuation">.</span>rear <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token comment">//入队</span>
+<span class="token keyword">bool</span> <span class="token function">EnQueue</span><span class="token punctuation">(</span>SqQueue <span class="token operator">&amp;</span>Q<span class="token punctuation">,</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Q<span class="token punctuation">.</span>rear<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span>MaxSize<span class="token operator">==</span>Q<span class="token punctuation">.</span>front<span class="token punctuation">)</span>  <span class="token comment">//判断是否为满 </span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	
+	Q<span class="token punctuation">.</span>data<span class="token punctuation">[</span>Q<span class="token punctuation">.</span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+	Q<span class="token punctuation">.</span>rear <span class="token operator">=</span> <span class="token punctuation">(</span>Q<span class="token punctuation">.</span>rear<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> MaxSize<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+ 
+<span class="token comment">//出队</span>
+<span class="token keyword">bool</span> <span class="token function">DeQueue</span><span class="token punctuation">(</span>SqQueue <span class="token operator">&amp;</span>Q<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>Q<span class="token punctuation">.</span>front <span class="token operator">==</span> Q<span class="token punctuation">.</span>rear<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+		
+	x <span class="token operator">=</span> Q<span class="token punctuation">.</span>data<span class="token punctuation">[</span>Q<span class="token punctuation">.</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	Q<span class="token punctuation">.</span>front <span class="token operator">=</span> <span class="token punctuation">(</span>Q<span class="token punctuation">.</span>front<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span>MaxSize<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+ 
+<span class="token comment">//查询队头</span>
+<span class="token keyword">bool</span> <span class="token function">GetHead</span><span class="token punctuation">(</span>SqQueue Q<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>Q<span class="token punctuation">.</span>front <span class="token operator">==</span> Q<span class="token punctuation">.</span>rear<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+		
+	x <span class="token operator">=</span> Q<span class="token punctuation">.</span>data<span class="token punctuation">[</span>Q<span class="token punctuation">.</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+ 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	SqQueue Q<span class="token punctuation">;</span>
+	<span class="token function">InitSqQueue</span><span class="token punctuation">(</span>Q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token function">EnQueue</span><span class="token punctuation">(</span>Q<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">EnQueue</span><span class="token punctuation">(</span>Q<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> x<span class="token punctuation">;</span>
+	<span class="token function">DeQueue</span><span class="token punctuation">(</span>Q<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+	<span class="token function">GetHead</span><span class="token punctuation">(</span>Q<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> y <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h2><a name="t13"></a><a id="3Java_776"></a>（3）Java实现</h2>
+         <h3><a name="t14"></a><a id="A_779"></a>A：链式队</h3>
+         <pre data-index="8" class="prettyprint" style="user-select:auto"><code class="prism language-java has-numbering" style="position:unset;user-select:auto"><span class="token keyword">package</span> <span class="token namespace">myQueue</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyQueue</span> <span class="token punctuation">{</span>
+    <span class="token comment">//结点定义</span>
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> val<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Node</span> next<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//队列头结点和尾节点</span>
+    <span class="token keyword">public</span> <span class="token class-name">Node</span> front<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Node</span> rear<span class="token punctuation">;</span>
+
+    <span class="token comment">//入队</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">offer</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">Node</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>front <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>front <span class="token operator">=</span> node<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>rear <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>rear<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>rear <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//出队</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>front <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> retVal <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>front <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rear <span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>front <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> retVal<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//查看队头元素</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>front <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token punctuation">.</span>val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+         <h3><a name="t15"></a><a id="B_836"></a>B：循环队列</h3>
+         <pre data-index="9" class="prettyprint" style="user-select:auto"><code class="prism language-java has-numbering" style="position:unset;user-select:auto"><span class="token keyword">package</span> <span class="token namespace">myCircularQueue</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyCircularQueue</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> elem<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> usedSize<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> front<span class="token punctuation">;</span><span class="token comment">//队头</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> rear<span class="token punctuation">;</span><span class="token comment">//队尾</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MyCircularQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>elem <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//入队</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token keyword">int</span> value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>elem<span class="token punctuation">[</span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>rear <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rear<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>elem<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//出队</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>front <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>elem<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//获取队头元素</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getFront</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>elem<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//获取队尾元素</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getRear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rear<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rear <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           index <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>elem<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>elem<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//判空</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rear <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//判满</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rear<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>elem<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>front<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+
+           <div class="hljs-button {2} sf-hidden" data-title="免登录复制"></div></code></pre>
+        </div>
+        <div data-report-view="{&quot;mod&quot;:&quot;1585297308_001&quot;,&quot;spm&quot;:&quot;1001.2101.3001.6548&quot;,&quot;dest&quot;:&quot;https://zhangxing-tech.blog.csdn.net/article/details/127113348&quot;,&quot;extend1&quot;:&quot;pc&quot;,&quot;ab&quot;:&quot;new&quot;}">
+         <div></div>
+        </div>
+        <style>.markdown_views a:focus,.markdown_views a:hover{color:#ca0c16}.markdown_views a:visited{color:#6795B5}.markdown_views pre code{font-size:14px;line-height:22px;padding:0!important;border-radius:4px}.markdown_views pre code::-webkit-scrollbar{height:6px;width:138px}.markdown_views pre code::-webkit-scrollbar-thumb{background:#C2C2C2;border-radius:4px}@media screen and (-webkit-min-device-pixel-ratio:0){.markdown_views pre code{min-width:94%}}.markdown_views pre.prettyprint{margin:0 0 24px;padding:8px 16px 6px 56px;border:none}#article_content .markdown_views pre.prettyprint *{word-wrap:normal;word-break:break-all}.prettyprint{position:relative;overflow-y:hidden;overflow-x:auto}.markdown_views .prettyprint .pre-numbering{position:absolute;width:48px;top:0;left:0;margin:0;padding:8px 0;list-style:none;text-align:right}.markdown_views .pre-numbering li{padding:0 8px;list-style:none;margin:0}.markdown_views.prism-atom-one-dark pre code{background-color:#282c34;color:#abb2bf}.markdown_views.prism-atom-one-dark .prettyprint .pre-numbering,.markdown_views.prism-atom-one-dark pre.prettyprint{background-color:#282c34}.markdown_views.prism-atom-one-dark .pre-numbering li{color:#abb2bf!important;border-right:1px solid #c5c5c5}.markdown_views .prism .token.comment{font-family:"Source Code Pro","DejaVu Sans Mono","Ubuntu Mono","Anonymous Pro","Droid Sans Mono",Menlo,Monaco,Consolas,Inconsolata,Courier,"PingFang SC","Microsoft YaHei",sans-serif!important}</style>
+        <style>.prism-atom-one-dark .prism .namespace{opacity:.7}body{counter-reset:a b;margin:0}.prism-atom-one-dark .prism{background:#282c34}.prism-atom-one-dark .prism *{font:400 14px Source Code Pro,DejaVu Sans Mono,Ubuntu Mono,Anonymous Pro,Droid Sans Mono,Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,PingFang SC,Microsoft YaHei,sans-serif!important}.prism-atom-one-dark .prism .token.comment{color:#5c6370}.prism-atom-one-dark .prism .token.comment{font-style:italic!important}.prism-atom-one-dark .prism .token.punctuation{color:#999}.prism-atom-one-dark .prism .token.constant,.prism-atom-one-dark .prism .token.number,.prism-atom-one-dark .prism .token.property{color:#98c379}.prism-atom-one-dark .prism .token.boolean{color:#56b6c2}.prism-atom-one-dark .prism .token.builtin,.prism-atom-one-dark .prism .token.char,.prism-atom-one-dark .prism .token.string{color:#690}.prism-atom-one-dark .prism .token.operator{color:#690}.prism-atom-one-dark .prism .token.keyword{color:#c678dd}.prism-atom-one-dark .prism .token.function{color:#61aeee}button,input{overflow:visible}/*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,main{display:block}.markdown_views *{box-sizing:border-box}a{background-color:transparent;-webkit-text-decoration-skip:objects}img{border-style:none}svg:not(:root){overflow:hidden}button{text-transform:none}button{-webkit-appearance:button}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.markdown_views,body,html{font-family:-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;-webkit-font-smoothing:antialiased}body,html{color:rgba(0,0,0,.75);font-variant-ligatures:common-ligatures;line-height:1.625;-moz-osx-font-smoothing:grayscale;tab-size:4;-moz-tab-size:4;-o-tab-size:4}.markdown_views pre *{font-size:inherit}.markdown_views pre>code{display:block;padding:.5em;-webkit-text-size-adjust:none;overflow-x:auto;white-space:pre}.markdown_views .toc ul{list-style-type:none}.markdown_views{word-break:break-word!important;-moz-osx-font-smoothing:antialiased;font-variant-ligatures:no-common-ligatures}.markdown_views p{font-size:16px;color:#4d4d4d;font-weight:400;line-height:26px;margin:0 0 16px;overflow:hidden;overflow-x:auto}.markdown_views h1,.markdown_views h2,.markdown_views h3{color:#4f4f4f;margin:24px 0 8px;font-weight:600}.markdown_views ul{margin:0 0 24px;padding:0;font-size:16px;overflow:hidden;overflow-x:auto}.markdown_views ul,.markdown_views ul>li{list-style-type:disc}.markdown_views li{margin:8px 0 0 32px}.markdown_views h1{font-size:22px;line-height:32px}.markdown_views h2{font-size:20px;line-height:30px}.markdown_views h3{font-size:18px;line-height:28px}.markdown_views pre{margin-bottom:24px}.markdown_views code,.markdown_views pre{font-family:Source Code Pro,DejaVu Sans Mono,Ubuntu Mono,Anonymous Pro,Droid Sans Mono,Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,PingFang SC,Microsoft YaHei,sans-serif;font-size:14px;line-height:22px;color:#000}.markdown_views a{color:#4ea1db;text-decoration:none}.markdown_views a:focus,.markdown_views a:hover{text-decoration:none;color:#ca0c16}.markdown_views a:visited{color:#6795b5}.markdown_views .toc{font-size:18px;line-height:24px;margin:0 0 24px;padding:0}.markdown_views .toc ul li{list-style-type:none}</style>
+       </div>
+      </article> <br>
+     </div> <a id="commentBox" name="commentBox"></a>
+     <div class="recommend-box insert-baidu-box recommend-highlight-default" style="display:none">
+     </div>
+    </main>
+   </div>
+   <div class="recommend-right align-items-stretch clearfix sf-hidden" id="rightAside" data-type="recommend">
+   </div>
+  </div>
+  <div>
+  </div>
+  <div>
+   <div class="cubox-extension-helper-button sf-hidden">
+    <svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_1219_9015)">
+      <mask id="mask0_1219_9015" style="mask-type:alpha" maskunits="userSpaceOnUse" x="1" y="1" width="16" height="16">
+       <path d="M9.77158 1.35001C13.0094 1.35001 14.6283 1.35001 15.6341 2.35586C16.64 3.36172 16.64 4.98062 16.64 8.21842V9.77158C16.64 13.0094 16.64 14.6283 15.6341 15.6341C14.6283 16.64 13.0094 16.64 9.77158 16.64H8.21842C4.98062 16.64 3.36172 16.64 2.35586 15.6341C1.35001 14.6283 1.35001 13.0094 1.35001 9.77158L1.35001 8.21842C1.35001 4.98062 1.35001 3.36172 2.35586 2.35586C3.36172 1.35001 4.98062 1.35001 8.21842 1.35001L9.77158 1.35001Z" fill="#D9D9D9"></path> 
+      </mask>
+      <g mask="url(#mask0_1219_9015)">
+       <ellipse cx="8.52658" cy="11.8882" rx="0.433911" ry="0.508873" fill="black"></ellipse>
+       <ellipse cx="6.0803" cy="11.8883" rx="0.433911" ry="0.508873" fill="black"></ellipse>
+       <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6727 14.412C14.6047 18.3796 12.1926 18.3772 9.0904 18.3743L8.832 18.3741C5.60628 18.3741 3.93861 17.6814 3.93861 14.161C3.93861 10.4926 5.60628 7.76974 8.832 7.76974C12.0577 7.76974 14.6727 10.7436 14.6727 14.412ZM9.8879 11.8935C9.8879 12.5374 9.40796 13.0594 8.81593 13.0594C8.2239 13.0594 7.74397 12.5374 7.74397 11.8935C7.74397 11.2496 8.2239 10.7276 8.81593 10.7276C9.40796 10.7276 9.8879 11.2496 9.8879 11.8935ZM6.33438 13.0593C6.907 13.0593 7.3712 12.5374 7.3712 11.8935C7.3712 11.2496 6.907 10.7276 6.33438 10.7276C5.76176 10.7276 5.29756 11.2496 5.29756 11.8935C5.29756 12.5374 5.76176 13.0593 6.33438 13.0593Z" fill="black"></path> 
+      </g>
+      <path d="M9.77158 2.00975C11.4091 2.00975 12.5709 2.01115 13.4519 2.1296C14.314 2.2455 14.8077 2.46246 15.1676 2.82237C15.5275 3.18229 15.7445 3.67605 15.8604 4.53807C15.9789 5.41908 15.9803 6.58087 15.9803 8.21842V9.77158C15.9803 11.4091 15.9789 12.5709 15.8604 13.4519C15.7445 14.314 15.5275 14.8077 15.1676 15.1676C14.8077 15.5275 14.314 15.7445 13.4519 15.8604C12.5709 15.9789 11.4091 15.9803 9.77158 15.9803H8.21842C6.58087 15.9803 5.41908 15.9789 4.53807 15.8604C3.67605 15.7445 3.18229 15.5275 2.82237 15.1676C2.46246 14.8077 2.2455 14.314 2.1296 13.4519C2.01115 12.5709 2.00975 11.4091 2.00975 9.77158V8.21842C2.00975 6.58087 2.01115 5.41908 2.1296 4.53807C2.2455 3.67605 2.46246 3.18229 2.82237 2.82237C3.18229 2.46246 3.67605 2.2455 4.53807 2.1296C5.41908 2.01115 6.58087 2.00975 8.21842 2.00975H9.77158Z" stroke="black" stroke-width="1.3195"></path> 
+     </g> <defs>
+      <clippath id="clip0_1219_9015">
+       <rect width="15.29" height="15.29" fill="white" transform="translate(1.35001 1.35001)"></rect> 
+      </clippath> 
+     </defs>
+    </svg>
+   </div>
+  </div>
+ </body>
+</html>
